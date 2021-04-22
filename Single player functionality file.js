@@ -1,0 +1,1 @@
+const singlePlayer_body = document.querySelector("body");

@@ -1,0 +1,1 @@
+const twoPlayers_body = document.querySelector("body");
