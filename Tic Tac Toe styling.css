@@ -9,9 +9,66 @@ ul{
     list-style: none;
 }
 
+li {
+    color: magenta;
+}
+
+/*Main page styling*/
+
+#title {
+    margin: auto;
+    text-align: center;
+}
+
+#gameTitle {
+    color: magenta;
+}
+
+#startButtons {
+    width: 600px;
+    margin: auto;
+    text-align: center;
+}
+
+.infoDisplay {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    margin-top: 10vh;
+}
+
+#button1 {
+    float: left;
+}
+
+#button2 {
+    float: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Single player + Two players styling*/
+
+.wholeBlock {
+    display: flex;
+    align-content: space-around;
+}
+
 .playingBlock {
     display: inline-block;
     width: 40vw;
+    padding-left: 25px;
+    padding-right: 25px;
 }
 
 .playingArea {
@@ -34,58 +91,23 @@ ul{
     width: 40vw;
 }
 
-/*Main page styling*/
-
-#title {
-    display: flex;
-}
-
-#gameTitle {
+.button {
+    border-style: none;
     color: magenta;
+    background-color: black;
+    font-size: 25px;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*Single player styling*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*Two players styling*/
-
-
+.playerScoreDisplay {
+    border: 5px, 5px, 5px, 5px;
+    border-color: magenta;
+    border-style: solid;
+}
 
 #twoPlayersScoringArea {
     display: inline-block;
@@ -114,9 +136,15 @@ ul{
     color: magenta;
 }
 
+#playerResults {
+    margin: auto;
+    text-align: center;
+}
 
-
-
+#endButton {
+    margin: auto;
+    text-align: center;
+}
 
 
 
