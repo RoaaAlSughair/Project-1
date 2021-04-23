@@ -1,8 +1,48 @@
+body {
+    background-image: url("https://www.themebeta.com/media/cache/728/files/chrome/images/201709/20/a5471a47edd2f7e8aeec01a040135abd.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+ul{
+    display: inline-block;
+    list-style: none;
+}
+
+.playingBlock {
+    display: inline-block;
+    width: 40vw;
+}
+
+.playingArea {
+    display: grid;
+    background-color:rgba( rgb(0, 0, 0), 0.9);
+    grid-template-columns:repeat(3, 1fr);
+    width: 500px;
+}
+
+.card {
+    background-color:rgba(rgb(0, 0, 0), 0.5);
+    height: calc(500px / 3);
+    border: 5px, 5px, 5px, 5px;
+    border-style: solid;
+    border-color: magenta;
+}
+
+.scoreBlock{
+    display: inline-block;
+    width: 40vw;
+}
+
 /*Main page styling*/
 
+#title {
+    display: flex;
+}
 
-
-
+#gameTitle {
+    color: magenta;
+}
 
 
 
@@ -25,37 +65,7 @@
 
 /*Single player styling*/
 
-#singlePlayerPLayingBlock {
-    display: inline-block;
-    width: 40vw;
-}
 
-#singlePlayerPlayingArea {
-    display: grid;
-    background-color: blueviolet;
-    gap: 5px;
-    grid-template-columns:repeat(3, 1fr);
-}
-
-.card {
-    background-color: cyan;
-    height: 50px;
-}
-
-#singlePlayerScoringArea {
-    display: inline-block;
-    width: 40vw;
-}
-
-#playerScoreBlock {
-    display: inline-block;
-    list-style: none;
-}
-
-#computerScoreBlock {
-    display: inline-block;
-    list-style: none;
-}
 
 
 
@@ -75,37 +85,11 @@
 
 /*Two players styling*/
 
-#twoPlayersPLayingBlock {
-    display: inline-block;
-    width: 40vw;
-}
 
-#twoPlayersPlayingArea {
-    display: grid;
-    background-color: blueviolet;
-    gap: 5px;
-    grid-template-columns:repeat(3, 1fr);
-
-}
-
-.card {
-    background-color: cyan;
-    height: 50px;
-}
 
 #twoPlayersScoringArea {
     display: inline-block;
     width: 40vw;
-}
-
-#player1ScoreBlock {
-    display: inline-block;
-    list-style: none;
-}
-
-#player2ScoreBlock {
-    display: inline-block;
-    list-style: none;
 }
 
 
@@ -126,7 +110,9 @@
 
 /*Final result styling*/
 
-
+.player {
+    color: magenta;
+}
 
 
 
