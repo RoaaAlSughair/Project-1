@@ -25,13 +25,37 @@
 
 /*Single player styling*/
 
+#singlePlayerPLayingBlock {
+    display: inline-block;
+    width: 40vw;
+}
 
+#singlePlayerPlayingArea {
+    display: grid;
+    background-color: blueviolet;
+    gap: 5px;
+    grid-template-columns:repeat(3, 1fr);
+}
 
+.card {
+    background-color: cyan;
+    height: 50px;
+}
 
+#singlePlayerScoringArea {
+    display: inline-block;
+    width: 40vw;
+}
 
+#playerScoreBlock {
+    display: inline-block;
+    list-style: none;
+}
 
-
-
+#computerScoreBlock {
+    display: inline-block;
+    list-style: none;
+}
 
 
 
@@ -51,13 +75,38 @@
 
 /*Two players styling*/
 
+#twoPlayersPLayingBlock {
+    display: inline-block;
+    width: 40vw;
+}
 
+#twoPlayersPlayingArea {
+    display: grid;
+    background-color: blueviolet;
+    gap: 5px;
+    grid-template-columns:repeat(3, 1fr);
 
+}
 
+.card {
+    background-color: cyan;
+    height: 50px;
+}
 
+#twoPlayersScoringArea {
+    display: inline-block;
+    width: 40vw;
+}
 
+#player1ScoreBlock {
+    display: inline-block;
+    list-style: none;
+}
 
-
+#player2ScoreBlock {
+    display: inline-block;
+    list-style: none;
+}
 
 
 
