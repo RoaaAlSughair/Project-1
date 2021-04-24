@@ -10,6 +10,8 @@ ul {
     display: inline-block;
     list-style: none;
     background-color: black;
+    padding-left: 0px;
+    text-align: center;
 }
 
 li {
@@ -75,7 +77,7 @@ button {
 
 .wholeBlock {
     /* display: grid;
-    grid-template-columns: 60%, 40%; */
+    grid-template-columns: 2fr, 2fr; */
     display: flex;
     justify-content: space-between;
 }
@@ -100,11 +102,12 @@ button {
     border: 5px, 5px, 5px, 5px;
     border-style: solid;
     border-color: magenta;
+    cursor: pointer;
 }
 
 .scoreBlock {
     display: inline-block;
-    width: 30vw;
+    width: 40vw;
 }
 
 .playerScoreDisplay {
@@ -115,7 +118,7 @@ button {
 
 #twoPlayersScoringArea {
     display: inline-block;
-    width: 40vw;
+    width: 60vw;
 }
 
 .returnButton {
