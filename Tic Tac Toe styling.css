@@ -1,19 +1,49 @@
+/* Global styling */
+
 body {
     background-image: url("https://www.themebeta.com/media/cache/728/files/chrome/images/201709/20/a5471a47edd2f7e8aeec01a040135abd.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-ul{
+ul {
     display: inline-block;
     list-style: none;
+    background-color: black;
 }
 
 li {
     color: magenta;
+    font-family: sans-serif;
 }
 
-/*Main page styling*/
+button {
+    border-style: none;
+    color: magenta;
+    background-color: black;
+    font-family: sans-serif;
+    font-size: 25px;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+}
+
+/* Main page and Final results mutual styling */
+
+.player {
+    color: magenta;
+    font-family: sans-serif;
+}
+
+.infoDisplay {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    margin-top: 10vh;
+}
+
+/* Main page styling */
 
 #title {
     margin: auto;
@@ -22,18 +52,15 @@ li {
 
 #gameTitle {
     color: magenta;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 50px;
 }
 
 #startButtons {
     width: 600px;
     margin: auto;
     text-align: center;
-}
-
-.infoDisplay {
-    display: grid;
-    grid-template-rows: repeat(2, 1fr);
-    margin-top: 10vh;
 }
 
 #button1 {
@@ -44,29 +71,18 @@ li {
     float: right;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*Single player + Two players styling*/
+/* Single player + Two players styling */
 
 .wholeBlock {
+    /* display: grid;
+    grid-template-columns: 60%, 40%; */
     display: flex;
-    align-content: space-around;
+    justify-content: space-between;
 }
 
 .playingBlock {
     display: inline-block;
-    width: 40vw;
+    width: 48vw;
     padding-left: 25px;
     padding-right: 25px;
 }
@@ -86,21 +102,9 @@ li {
     border-color: magenta;
 }
 
-.scoreBlock{
+.scoreBlock {
     display: inline-block;
-    width: 40vw;
-}
-
-.button {
-    border-style: none;
-    color: magenta;
-    background-color: black;
-    font-size: 25px;
-    cursor: pointer;
-    padding-left: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-right: 10px;
+    width: 30vw;
 }
 
 .playerScoreDisplay {
@@ -114,27 +118,11 @@ li {
     width: 40vw;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*Final result styling*/
-
-.player {
-    color: magenta;
+.returnButton {
+    float:right;
 }
+
+/* Final result styling */
 
 #playerResults {
     margin: auto;
@@ -145,22 +133,3 @@ li {
     margin: auto;
     text-align: center;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
