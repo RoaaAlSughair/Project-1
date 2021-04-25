@@ -79,7 +79,7 @@ button {
     /* display: grid;
     grid-template-columns: 2fr, 2fr; */
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .playingBlock {
