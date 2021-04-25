@@ -56,33 +56,44 @@ winningArray = [
     document.getElementById(`7`),
   ],
 ];
-
 playerOneArray = [];
 playerTwoArray = [];
+playerOneWinCount = 0;
+playerOneLoseCount = 0;
+playerTwoWinCount = 0;
+playerTwoLoseCount = 0;
 
 imageZero = document.createElement(`img`);
-imageZero.src = `Hangman_image_0`;
+imageZero.src = `Hangman_image_0.png`;
 imageOne = document.createElement(`img`);
-imageOne.src = `Hangman_image_1`;
+imageOne.src = `Hangman_image_1.png`;
 imageTwo = document.createElement(`img`);
-imageTwo.src = `Hangman_image_2`;
+imageTwo.src = `Hangman_image_2.png`;
 imageThree = document.createElement(`img`);
-imageThree.src = `Hangman_image_3`;
+imageThree.src = `Hangman_image_3.png`;
 imageFour = document.createElement(`img`);
-imageFour.src = `Hangman_image_4`;
+imageFour.src = `Hangman_image_4.png`;
 imageFive = document.createElement(`img`);
-imageFive.src = `Hangman_image_5`;
+imageFive.src = `Hangman_image_5.png`;
 imageSix = document.createElement(`img`);
-imageSix.src = `Hangman_image_6`;
+imageSix.src = `Hangman_image_6.png`;
 
-hangmanArray = [imageZero, imageOne, imageTwo, imageThree, imageFour, imageFive, imageSix];
+hangmanArray = [
+  imageZero,
+  imageOne,
+  imageTwo,
+  imageThree,
+  imageFour,
+  imageFive,
+  imageSix,
+];
 
 const cards = document.querySelectorAll(`.card`);
 
 const roleFlipper = roleChange();
 
 for (i = 0; i < cards.length; i++) {
-  cards[i].addEventListener(`click`, function () {
+  cards[i].addEventListener(`click`, () => {
     if (!this.classList.contains(`X`) && !this.classList.contains(`O`)) {
       let role = roleFlipper();
 
@@ -90,15 +101,15 @@ for (i = 0; i < cards.length; i++) {
         this.classList.add(`X`);
         const picture = document.createElement(`img`);
         picture.src = `shooting-star.png`;
-        picture.height = `165.5`;
+        picture.height = `166`;
         picture.width = `162.5`;
         playerTwoArray.push(this);
         this.appendChild(picture);
       } else if (role === `O`) {
         this.classList.add(`O`);
         const picture = document.createElement(`img`);
-        picture.src = `moon.jfif`;
-        picture.height = `165.5`;
+        picture.src = `Moon.png`;
+        picture.height = `166`;
         picture.width = `162.5`;
         this.appendChild(picture);
         playerOneArray.push(this);
@@ -106,11 +117,33 @@ for (i = 0; i < cards.length; i++) {
     } else {
       alert(`This square is occupied`);
     }
-  });
-}
 
-if (playerTwoArray.length === winningArray[0].length) {
-  alert(`Player 2 wins!`);
+    if (playerOneArray.length >= 3 || playerTwoArray.length >= 3) {
+      winningArray.forEach((element) => {
+        if (
+          element[0].classList.contains(`O`) &&
+          element[1].classList.contains(`O`) &&
+          element[2].classList.contains(`O`)
+        ) {
+          playerOneWinCount++;
+          playerTwoLoseCount++;
+          alert(`Player 1 won!
+        
+        Good luck in the next round Player 2`);
+        } else if (
+          element[0].classList.contains(`X`) &&
+          element[1].classList.contains(`X`) &&
+          element[2].classList.contains(`X`)
+        ) {
+          playerTwoWinCount++;
+          playerOneLoseCount++;
+          alert(`Player 2 won!
+        
+        Good luck in the next round Player 1`);
+        }
+      });
+    }
+  });
 }
 
 // const compareArrays = (array1, array2) => {

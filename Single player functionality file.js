@@ -1,62 +1,43 @@
 const singlePlayer_body = document.querySelector("body");
 
-const roleChange = () => {
-  let roleSwitch = `X`;
-
-  return () => {
-    if (roleSwitch === `X`) {
-      roleSwitch = `O`;
-      return roleSwitch;
-    } else {
-      roleSwitch = `X`;
-      return roleSwitch;
-    }
-  };
-};
-
 playerOneArray = [];
 playerTwoArray = [];
 
 const cards = document.querySelectorAll(`.card`);
 
-const roleFlipper = roleChange();
+// The commented code below is for the computer as a player feature
+
+// computerMove = () => {
+//   let squareNumber = Math.round(Math.round() * 9);
+
+//   if (
+//     !document.getElementById(`${squareNumber}`).contains(`X`) &&
+//     !document.getElementById(`${squareNumber}`).contains(`O`)
+//   ) {
+//     document.getElementById(`${squareNumber}`).classList.add(`X`);
+//     const picture = document.createElement(`img`);
+//     picture.src = `shooting-star.png`;
+//     picture.height = `166`;
+//     picture.width = `162.5`;
+//     playerTwoArray.push(this);
+//     document.getElementById(`${squareNumber}`).appendChild(picture);
+//     playerTwoArray.push(document.getElementById(`${squareNumber}`));
+//   }
+// };
 
 for (i = 0; i < cards.length; i++) {
-  cards[i].addEventListener(`click`, function () {
-    let role = roleFlipper();
-
-    if (role === `O`) {
-      if (!this.classList.contains(`X`) && !this.classList.contains(`O`)) {
-        this.classList.add(`O`);
-        const picture = document.createElement(`img`);
-        picture.src = `moon.jfif`;
-        picture.height = `165.5`;
-        picture.width = `162.5`;
-        this.appendChild(picture);
-        playerOneArray.push(this);
-
-        computerMove = () => {
-          let squareNumber = Math.round(Math.round() * 9);
-
-          if (
-            !document.getElementById(`${squareNumber}`).contains(`X`) &&
-            !document.getElementById(`${squareNumber}`).contains(`O`)
-          ) {
-            document.getElementById(`${squareNumber}`).classList.add(`X`);
-            const picture = document.createElement(`img`);
-            picture.src = `shooting-star.png`;
-            picture.height = `165.5`;
-            picture.width = `162.5`;
-            playerTwoArray.push(this);
-            document.getElementById(`${squareNumber}`).appendChild(picture);
-            playerTwoArray.push(document.getElementById(`${squareNumber}`));
-          } else {
-            return computerMove();
-          }
-        };
-      } else {
-        alert(`This square is occupied`);
-      }
+  cards[i].addEventListener(`click`, () => {
+    if (!this.classList.contains(`X`) && !this.classList.contains(`O`)) {
+      this.classList.add(`O`);
+      const picture = document.createElement(`img`);
+      picture.src = `Moon.png`;
+      picture.height = `166`;
+      picture.width = `162.5`;
+      this.appendChild(picture);
+      playerOneArray.push(this);
+      // computerMove();
+    } else {
+      alert(`This square is occupied`);
     }
   });
 }
@@ -105,21 +86,29 @@ winningArray = [
 ];
 
 imageZero = document.createElement(`img`);
-imageZero.src = `Hangman_image_0`;
+imageZero.src = `Hangman_image_0.png`;
 imageOne = document.createElement(`img`);
-imageOne.src = `Hangman_image_1`;
+imageOne.src = `Hangman_image_1.png`;
 imageTwo = document.createElement(`img`);
-imageTwo.src = `Hangman_image_2`;
+imageTwo.src = `Hangman_image_2.png`;
 imageThree = document.createElement(`img`);
-imageThree.src = `Hangman_image_3`;
+imageThree.src = `Hangman_image_3.png`;
 imageFour = document.createElement(`img`);
-imageFour.src = `Hangman_image_4`;
+imageFour.src = `Hangman_image_4.png`;
 imageFive = document.createElement(`img`);
-imageFive.src = `Hangman_image_5`;
+imageFive.src = `Hangman_image_5.png`;
 imageSix = document.createElement(`img`);
-imageSix.src = `Hangman_image_6`;
+imageSix.src = `Hangman_image_6.png     `;
 
-hangmanArray = [imageZero, imageOne, imageTwo, imageThree, imageFour, imageFive, imageSix];
+hangmanArray = [
+  imageZero,
+  imageOne,
+  imageTwo,
+  imageThree,
+  imageFour,
+  imageFive,
+  imageSix,
+];
 
 const compareArrays = (array1, array2) => {
   let comparisonArray = [];

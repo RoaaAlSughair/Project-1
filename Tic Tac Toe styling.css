@@ -10,8 +10,12 @@ ul {
     display: inline-block;
     list-style: none;
     background-color: black;
-    padding-left: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     text-align: center;
+    height: inherit;
 }
 
 li {
@@ -107,7 +111,7 @@ button {
 
 .scoreBlock {
     display: inline-block;
-    width: 40vw;
+    width: 32vw;
 }
 
 .playerScoreDisplay {
@@ -117,7 +121,7 @@ button {
 }
 
 .returnButton {
-    float:right;
+    float:left;
 }
 
 /* Final result styling */
@@ -125,6 +129,7 @@ button {
 #playerResults {
     margin: auto;
     text-align: center;
+    height: 180px;
 }
 
 #endButton {
