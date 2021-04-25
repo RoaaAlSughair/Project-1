@@ -28,6 +28,11 @@ for (i = 0; i < cards.length; i++) {
     if (role === `O`) {
       if (!this.classList.contains(`X`) && !this.classList.contains(`O`)) {
         this.classList.add(`O`);
+        const picture = document.createElement(`img`);
+        picture.src = `moon.jfif`;
+        picture.height = `165.5`;
+        picture.width = `162.5`;
+        this.appendChild(picture);
         playerOneArray.push(this);
 
         computerMove = () => {
@@ -38,6 +43,12 @@ for (i = 0; i < cards.length; i++) {
             !document.getElementById(`${squareNumber}`).contains(`O`)
           ) {
             document.getElementById(`${squareNumber}`).classList.add(`X`);
+            const picture = document.createElement(`img`);
+            picture.src = `shooting-star.png`;
+            picture.height = `165.5`;
+            picture.width = `162.5`;
+            playerTwoArray.push(this);
+            document.getElementById(`${squareNumber}`).appendChild(picture);
             playerTwoArray.push(document.getElementById(`${squareNumber}`));
           } else {
             return computerMove();
@@ -92,6 +103,23 @@ winningArray = [
     document.getElementById(`7`),
   ],
 ];
+
+imageZero = document.createElement(`img`);
+imageZero.src = `Hangman_image_0`;
+imageOne = document.createElement(`img`);
+imageOne.src = `Hangman_image_1`;
+imageTwo = document.createElement(`img`);
+imageTwo.src = `Hangman_image_2`;
+imageThree = document.createElement(`img`);
+imageThree.src = `Hangman_image_3`;
+imageFour = document.createElement(`img`);
+imageFour.src = `Hangman_image_4`;
+imageFive = document.createElement(`img`);
+imageFive.src = `Hangman_image_5`;
+imageSix = document.createElement(`img`);
+imageSix.src = `Hangman_image_6`;
+
+hangmanArray = [imageZero, imageOne, imageTwo, imageThree, imageFour, imageFive, imageSix];
 
 const compareArrays = (array1, array2) => {
   let comparisonArray = [];

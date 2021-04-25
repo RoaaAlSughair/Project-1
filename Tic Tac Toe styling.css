@@ -116,11 +116,6 @@ button {
     border-style: solid;
 }
 
-#twoPlayersScoringArea {
-    display: inline-block;
-    width: 60vw;
-}
-
 .returnButton {
     float:right;
 }
