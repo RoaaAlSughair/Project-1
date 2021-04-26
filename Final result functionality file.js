@@ -4,6 +4,6 @@ const returnButton = document.querySelector("#returnButton");
 returnButton.addEventListener(`click`, () => {
   alert(`I hope you enjoyed my game :)
     
-    With regards,
+    With regards from this game's developer,
     Ruaa`);
 });

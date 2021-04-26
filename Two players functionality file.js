@@ -93,25 +93,28 @@ const cards = document.querySelectorAll(`.card`);
 const roleFlipper = roleChange();
 
 for (i = 0; i < cards.length; i++) {
-  cards[i].addEventListener(`click`, () => {
-    if (!this.classList.contains(`X`) && !this.classList.contains(`O`)) {
+  cards[i].addEventListener(`click`, (event) => {
+    if (
+      !event.target.classList.contains(`X`) &&
+      !event.target.classList.contains(`O`)
+    ) {
       let role = roleFlipper();
 
       if (role === `X`) {
-        this.classList.add(`X`);
+        event.target.classList.add(`X`);
         const picture = document.createElement(`img`);
         picture.src = `shooting-star.png`;
         picture.height = `166`;
         picture.width = `162.5`;
         playerTwoArray.push(this);
-        this.appendChild(picture);
+        event.target.appendChild(picture);
       } else if (role === `O`) {
-        this.classList.add(`O`);
+        event.target.classList.add(`O`);
         const picture = document.createElement(`img`);
         picture.src = `Moon.png`;
         picture.height = `166`;
         picture.width = `162.5`;
-        this.appendChild(picture);
+        event.target.appendChild(picture);
         playerOneArray.push(this);
       }
     } else {
@@ -127,9 +130,23 @@ for (i = 0; i < cards.length; i++) {
         ) {
           playerOneWinCount++;
           playerTwoLoseCount++;
-          alert(`Player 1 won!
+          alert(`Player 1 wins!
         
         Good luck in the next round Player 2`);
+          document.querySelector(".playerScoreDisplay").remove(`img`);
+          document
+            .querySelector("#playerTwo")
+            .appendChild(hangmanArray[playerTwoLoseCount]);
+          const oCards = document.querySelectorAll(`O`);
+          for (i = 0; i < oCards.length; i++) {
+            oCards[i].remove(`img`);
+            oCards[i].classList.remove(`O`);
+          }
+          const xCards = document.querySelectorAll(`X`);
+          for (i = 0; i < oCards.length; i++) {
+            xCards[i].remove(`img`);
+            xCards[i].classList.remove(`X`);
+          }
         } else if (
           element[0].classList.contains(`X`) &&
           element[1].classList.contains(`X`) &&
@@ -137,67 +154,25 @@ for (i = 0; i < cards.length; i++) {
         ) {
           playerTwoWinCount++;
           playerOneLoseCount++;
-          alert(`Player 2 won!
+          alert(`Player 2 wins!
         
         Good luck in the next round Player 1`);
+          document.querySelector(".playerScoreDisplay").remove(`img`);
+          document
+            .querySelector("#playerOne")
+            .appendChild(hangmanArray[playerOneLoseCount]);
+          const oCards = document.querySelectorAll(`O`);
+          for (i = 0; i < oCards.length; i++) {
+            oCards[i].remove(`img`);
+            oCards[i].classList.remove(`O`);
+          }
+          const xCards = document.querySelectorAll(`X`);
+          for (i = 0; i < oCards.length; i++) {
+            xCards[i].remove(`img`);
+            xCards[i].classList.remove(`X`);
+          }
         }
       });
     }
   });
 }
-
-// const compareArrays = (array1, array2) => {
-//   let comparisonArray = [];
-
-//   for (i = 0, j = 0; i < array1.length && j < array2.length; i++, j++) {
-//     if (array1[i] === array2[j]) {
-//       comparisonArray.push(array1[i]);
-//     }
-//   }
-//   return comparisonArray;
-// };
-
-// if (playerOneArray.length >= 3) {
-//   playerOneArray.sort();
-
-//   winningArray.array.forEach((element) => {
-//     if (compareArrays(playerOneArray, element).length === element.length) {
-//       alert(`Winner: Player 1 wins!`);
-//     }
-//   });
-// }
-
-// if (playerTwoArray.length >= 3) {
-//   playerTwoArray.sort();
-
-//   winningArray.array.forEach((element) => {
-//     if (compareArrays(playerTwoArray, element).length === element.length) {
-//       alert(`Winner: Player 2 wins!`);
-//     }
-//   });
-// }
-
-// if (playerOneArray.length + playerTwoArray.length === 9) {
-
-//   if (playerOneArray.length >= 3) {
-//     playerOneArray.sort();
-
-//     winningArray.array.forEach((element) => {
-//       if (compareArrays(playerOneArray, element).length === element.length) {
-//         alert(`Winner: Player 1 wins!`);
-//       }
-//     });
-//   }
-
-//   if (playerTwoArray.length >= 3) {
-//     playerTwoArray.sort();
-
-//     winningArray.array.forEach((element) => {
-//       if (compareArrays(playerTwoArray, element).length === element.length) {
-//         alert(`Winner: Player 2 wins!`);
-//       }
-//     });
-//   }
-
-//   alert (`It's a draw!`)
-// }

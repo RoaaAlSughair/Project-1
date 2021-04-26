@@ -2,8 +2,10 @@ const singlePlayer_body = document.querySelector("body");
 
 playerOneArray = [];
 playerTwoArray = [];
-
-const cards = document.querySelectorAll(`.card`);
+playerOneWinCount = 0;
+playerOneLoseCount = 0;
+playerTwoWinCount = 0;
+playerTwoLoseCount = 0;
 
 // The commented code below is for the computer as a player feature
 
@@ -24,23 +26,6 @@ const cards = document.querySelectorAll(`.card`);
 //     playerTwoArray.push(document.getElementById(`${squareNumber}`));
 //   }
 // };
-
-for (i = 0; i < cards.length; i++) {
-  cards[i].addEventListener(`click`, () => {
-    if (!this.classList.contains(`X`) && !this.classList.contains(`O`)) {
-      this.classList.add(`O`);
-      const picture = document.createElement(`img`);
-      picture.src = `Moon.png`;
-      picture.height = `166`;
-      picture.width = `162.5`;
-      this.appendChild(picture);
-      playerOneArray.push(this);
-      // computerMove();
-    } else {
-      alert(`This square is occupied`);
-    }
-  });
-}
 
 winningArray = [
   [
@@ -98,7 +83,7 @@ imageFour.src = `Hangman_image_4.png`;
 imageFive = document.createElement(`img`);
 imageFive.src = `Hangman_image_5.png`;
 imageSix = document.createElement(`img`);
-imageSix.src = `Hangman_image_6.png     `;
+imageSix.src = `Hangman_image_6.png`;
 
 hangmanArray = [
   imageZero,
@@ -110,33 +95,76 @@ hangmanArray = [
   imageSix,
 ];
 
-const compareArrays = (array1, array2) => {
-  let comparisonArray = [];
+const cards = document.querySelectorAll(`.card`);
 
-  for (i = 0, j = 0; i < array1.length && j < array2.length; i++, j++) {
-    if (array1[i] === array2[j]) {
-      comparisonArray.push(array1[i]);
+for (i = 0; i < cards.length; i++) {
+  cards[i].addEventListener(`click`, (event) => {
+    if (
+      !event.target.classList.contains(`X`) &&
+      !event.target.classList.contains(`O`)
+    ) {
+      event.target.classList.add(`O`);
+      const picture = document.createElement(`img`);
+      picture.src = `Moon.png`;
+      picture.height = `166`;
+      picture.width = `162.5`;
+      this.appendChild(picture);
+      playerOneArray.push(this);
+      // computerMove();
+    } else {
+      alert(`This square is occupied`);
     }
-    return comparisonArray;
-  }
-};
 
-if (playerOneArray.length >= 3) {
-  playerOneArray.sort();
-
-  winningArray.array.forEach((element) => {
-    if (compareArrays(playerOneArray, element).length === element.length) {
-      alert(`Winner: Player wins`);
-    }
-  });
-}
-
-if (playerTwoArray.length >= 3) {
-  playerTwoArray.sort();
-
-  winningArray.array.forEach((element) => {
-    if (compareArrays(playerTwoArray, element).length === element.length) {
-      alert(`Winner: Computer wins`);
+    if (playerOneArray.length >= 3 || playerTwoArray.length >= 3) {
+      winningArray.forEach((element) => {
+        if (
+          element[0].classList.contains(`O`) &&
+          element[1].classList.contains(`O`) &&
+          element[2].classList.contains(`O`)
+        ) {
+          playerOneWinCount++;
+          playerTwoLoseCount++;
+          alert(`Player wins!`);
+          document.querySelector(".playerScoreDisplay").remove(`img`);
+          document
+            .querySelector("#playerTwo")
+            .appendChild(hangmanArray[playerTwoLoseCount]);
+          const oCards = document.querySelectorAll(`O`);
+          for (i = 0; i < oCards.length; i++) {
+            oCards[i].remove(`img`);
+            oCards[i].classList.remove(`O`);
+          }
+          const xCards = document.querySelectorAll(`X`);
+          for (i = 0; i < oCards.length; i++) {
+            xCards[i].remove(`img`);
+            xCards[i].classList.remove(`X`);
+          }
+        } else if (
+          element[0].classList.contains(`X`) &&
+          element[1].classList.contains(`X`) &&
+          element[2].classList.contains(`X`)
+        ) {
+          playerTwoWinCount++;
+          playerOneLoseCount++;
+          alert(`Computer wins!
+        
+        Good luck in the next round Player`);
+          document.querySelector(".playerScoreDisplay").remove(`img`);
+          document
+            .querySelector("#playerOne")
+            .appendChild(hangmanArray[playerOneLoseCount]);
+          const oCards = document.querySelectorAll(`O`);
+          for (i = 0; i < oCards.length; i++) {
+            oCards[i].remove(`img`);
+            oCards[i].classList.remove(`O`);
+          }
+          const xCards = document.querySelectorAll(`X`);
+          for (i = 0; i < oCards.length; i++) {
+            xCards[i].remove(`img`);
+            xCards[i].classList.remove(`X`);
+          }
+        }
+      });
     }
   });
 }
