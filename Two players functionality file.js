@@ -121,58 +121,83 @@ for (i = 0; i < cards.length; i++) {
       alert(`This square is occupied`);
     }
 
-    if (playerOneArray.length >= 3 || playerTwoArray.length >= 3) {
-      winningArray.forEach((element) => {
-        if (
-          element[0].classList.contains(`O`) &&
-          element[1].classList.contains(`O`) &&
-          element[2].classList.contains(`O`)
-        ) {
-          playerOneWinCount++;
-          playerTwoLoseCount++;
-          alert(`Player 1 wins!
+    if (
+      document.querySelectorAll(`X`).length +
+        document.querySelectorAll(`O`).length >=
+        5 &&
+      document.querySelectorAll(`X`).length +
+        document.querySelectorAll(`O`).length <
+        9
+    ) {
+      if (playerOneArray.length >= 3 || playerTwoArray.length >= 3) {
+        winningArray.forEach((element) => {
+          if (
+            element[0].classList.contains(`O`) &&
+            element[1].classList.contains(`O`) &&
+            element[2].classList.contains(`O`)
+          ) {
+            playerOneWinCount++;
+            playerTwoLoseCount++;
+            const oCards = document.querySelectorAll(`O`);
+            for (i = 0; i < oCards.length; i++) {
+              oCards[i].remove(`img`);
+              oCards[i].classList.remove(`O`);
+            }
+            const xCards = document.querySelectorAll(`X`);
+            for (i = 0; i < oCards.length; i++) {
+              xCards[i].remove(`img`);
+              xCards[i].classList.remove(`X`);
+            }
+            alert(`Player 1 wins!
         
         Good luck in the next round Player 2`);
-          document.querySelector(".playerScoreDisplay").remove(`img`);
-          document
-            .querySelector("#playerTwo")
-            .appendChild(hangmanArray[playerTwoLoseCount]);
-          const oCards = document.querySelectorAll(`O`);
-          for (i = 0; i < oCards.length; i++) {
-            oCards[i].remove(`img`);
-            oCards[i].classList.remove(`O`);
-          }
-          const xCards = document.querySelectorAll(`X`);
-          for (i = 0; i < oCards.length; i++) {
-            xCards[i].remove(`img`);
-            xCards[i].classList.remove(`X`);
-          }
-        } else if (
-          element[0].classList.contains(`X`) &&
-          element[1].classList.contains(`X`) &&
-          element[2].classList.contains(`X`)
-        ) {
-          playerTwoWinCount++;
-          playerOneLoseCount++;
-          alert(`Player 2 wins!
+            document.querySelector(".playerScoreDisplay").remove(`img`);
+            document
+              .querySelector("#playerTwo")
+              .appendChild(hangmanArray[playerTwoLoseCount]);
+          } else if (
+            element[0].classList.contains(`X`) &&
+            element[1].classList.contains(`X`) &&
+            element[2].classList.contains(`X`)
+          ) {
+            playerTwoWinCount++;
+            playerOneLoseCount++;
+            const oCards = document.querySelectorAll(`O`);
+            for (i = 0; i < oCards.length; i++) {
+              oCards[i].remove(`img`);
+              oCards[i].classList.remove(`O`);
+            }
+            const xCards = document.querySelectorAll(`X`);
+            for (i = 0; i < oCards.length; i++) {
+              xCards[i].remove(`img`);
+              xCards[i].classList.remove(`X`);
+            }
+            alert(`Player 2 wins!
         
         Good luck in the next round Player 1`);
-          document.querySelector(".playerScoreDisplay").remove(`img`);
-          document
-            .querySelector("#playerOne")
-            .appendChild(hangmanArray[playerOneLoseCount]);
-          const oCards = document.querySelectorAll(`O`);
-          for (i = 0; i < oCards.length; i++) {
-            oCards[i].remove(`img`);
-            oCards[i].classList.remove(`O`);
+            document.querySelector(".playerScoreDisplay").remove(`img`);
+            document
+              .querySelector("#playerOne")
+              .appendChild(hangmanArray[playerOneLoseCount]);
           }
-          const xCards = document.querySelectorAll(`X`);
-          for (i = 0; i < oCards.length; i++) {
-            xCards[i].remove(`img`);
-            xCards[i].classList.remove(`X`);
-          }
-        }
-      });
+        });
+      }
+    } else if (
+      document.querySelectorAll(`X`).length +
+        document.querySelectorAll(`O`).length ===
+      9
+    ) {
+      alert(`It's a draw!`);
+      const oCards = document.querySelectorAll(`O`);
+      for (i = 0; i < oCards.length; i++) {
+        oCards[i].remove(`img`);
+        oCards[i].classList.remove(`O`);
+      }
+      const xCards = document.querySelectorAll(`X`);
+      for (i = 0; i < oCards.length; i++) {
+        xCards[i].remove(`img`);
+        xCards[i].classList.remove(`X`);
+      }
     }
   });
 }
