@@ -27,6 +27,23 @@ playerTwoLoseCount = 0;
 //   }
 // };
 
+for (i = 0; i < cards.length; i++) {
+  cards[i].addEventListener(`click`, () => {
+    if (!this.classList.contains(`X`) && !this.classList.contains(`O`)) {
+      this.classList.add(`O`);
+      const picture = document.createElement(`img`);
+      picture.src = `Moon.png`;
+      picture.height = `166`;
+      picture.width = `162.5`;
+      this.appendChild(picture);
+      playerOneArray.push(this);
+      // computerMove();
+    } else {
+      alert(`This square is occupied`);
+    }
+  });
+}
+
 winningArray = [
   [
     document.getElementById(`1`),
